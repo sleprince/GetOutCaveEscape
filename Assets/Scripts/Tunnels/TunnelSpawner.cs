@@ -20,18 +20,30 @@ public class TunnelSpawner : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(TimeHater(0.5f)); //seems to be skipped on start.
         expTime = Time.fixedTime;
+
+
+        Spawn(openingDirection);
 
         //Destroy(gameObject, waitTime); //supposed to stop the start function happen over and over I think.
         //templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
 
         //Invoke("Spawn", 0.1f);
 
-        Spawn(openingDirection);
+
+
+
 
         //Invoke spawn 2 doors. pass in oD , after 3 minutes, 3 doors after 1.5mins etc.
     }
 
+    void FixedUpdate()
+    {
+
+        
+
+    }
 
     void Spawn(int oD)
     {
@@ -46,11 +58,15 @@ public class TunnelSpawner : MonoBehaviour
                 //need to spawn a tunnel with a bottom door.
                 //rand = Random.Range(0, templates.bottomRooms.Length);
                 Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
+
+                StartCoroutine(TimeHater(20.5f));
             }
             else if (expTime >= 0.01f)
             {
                 GameObject go2 = (GameObject)Resources.Load("Tunnels/TTB");
                 Instantiate(go2, transform.position, Quaternion.Euler(270, 0, 0));
+
+                StartCoroutine(TimeHater(20.5f));
 
                 //rand will be between 1 and 2 now.
                 //need to spawn a tunnel with a top door.
@@ -70,6 +86,7 @@ public class TunnelSpawner : MonoBehaviour
                 //Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
             }
             //spawned = true;
+            
         }
     }
 
@@ -85,4 +102,11 @@ public class TunnelSpawner : MonoBehaviour
             spawned = true;
         }
     }
+
+    IEnumerator TimeHater(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        //spawned = true;
+    }
+
 } //class end.

@@ -13,18 +13,27 @@ public class TunnelSpawner : MonoBehaviour
 
    // private RoomTemplates templates;
     private int rand;
-    public bool spawned = false;
+    public bool spawned;
 
     public float waitTime = 4f;
     public float expTime;
 
+    public GameObject SPoint;
+
     void Start()
     {
-        StartCoroutine(TimeHater(0.5f)); //seems to be skipped on start.
+        transform.position = SPoint.transform.position;
+    }
+
+    void FixedUpdate()
+    {
+        //StartCoroutine(TimeHater(0.5f)); //seems to be skipped on start.
         expTime = Time.fixedTime;
 
 
         Spawn(openingDirection);
+
+        //spawned = true;
 
         //Destroy(gameObject, waitTime); //supposed to stop the start function happen over and over I think.
         //templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
@@ -38,30 +47,28 @@ public class TunnelSpawner : MonoBehaviour
         //Invoke spawn 2 doors. pass in oD , after 3 minutes, 3 doors after 1.5mins etc.
     }
 
-    void FixedUpdate()
-    {
-
-        
-
-    }
-
     void Spawn(int oD)
     {
         if (spawned == false)
         {
-            if ((oD == 1) && (expTime <= 0.01f))
+            if ((oD == 1) && (expTime <= 2.00f))
             {
 
-                GameObject go1 = (GameObject)Resources.Load("Tunnels/Tunnel_Prefab");
+                GameObject go1 = (GameObject)Resources.Load("Tunnels/CorridorBig");
 
 
                 //need to spawn a tunnel with a bottom door.
                 //rand = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
 
-                StartCoroutine(TimeHater(20.5f));
+                //for the original tunnel one that needed rotating.
+                //Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
+                Instantiate(go1, transform.position, Quaternion.identity);
+
+                //go1.transform.position = new Vector3(62, 16, 8);
+
+                //StartCoroutine(TimeHater(20.5f));
             }
-            else if (expTime >= 0.01f)
+           /* else if (expTime >= 0.01f)
             {
                 GameObject go2 = (GameObject)Resources.Load("Tunnels/TTB");
                 Instantiate(go2, transform.position, Quaternion.Euler(270, 0, 0));
@@ -72,7 +79,7 @@ public class TunnelSpawner : MonoBehaviour
                 //need to spawn a tunnel with a top door.
                 //  rand = Random.Range(0, templates.topRooms.Length);
                 // Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-            }
+            } */
             else if (openingDirection == 3)
             {
                 //need to spawn a tunnel with a left door.

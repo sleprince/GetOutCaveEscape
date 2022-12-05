@@ -25,6 +25,8 @@ public class TunnelSpawner : MonoBehaviour
     void Start()
     {
         transform.position = SPoint.transform.position;
+
+        templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
     }
 
     void FixedUpdate()
@@ -40,7 +42,7 @@ public class TunnelSpawner : MonoBehaviour
         
         //Destroy(gameObject, waitTime); //supposed to stop the start function happen over and over I think.
 
-        templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
+        
 
         //Invoke("Spawn", 0.1f);
 
@@ -53,7 +55,7 @@ public class TunnelSpawner : MonoBehaviour
 
     void Spawn(int oD)
     {
-        if (expTime <= 2.00f)
+        if (expTime <= 0.00000002f)
         {
             if (oD == 1)
             {

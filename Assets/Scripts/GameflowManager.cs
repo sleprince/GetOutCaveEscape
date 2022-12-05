@@ -6,13 +6,19 @@ using UnityEngine.SceneManagement;
 public class GameflowManager : MonoBehaviour
 {
     public GameObject scale;
+    public GameObject floorMesh;
+
+    public BoxCollider ground;
+
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);
     //public bool TooBig;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //get the mesh collider from the ground.
+        ground = floorMesh.GetComponentInChildren<BoxCollider>(true) as BoxCollider;
+
     }
 
     public bool TooBig()
@@ -31,5 +37,11 @@ public class GameflowManager : MonoBehaviour
                 SceneManager.LoadScene("GameOver");
         }
 
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("YouWin");
     }
 }

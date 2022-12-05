@@ -55,7 +55,7 @@ public class TunnelSpawner : MonoBehaviour
 
     void Spawn(int oD)
     {
-        if (expTime <= 0.00000002f)
+        if (expTime <= 2.00000002f)
         {
             if (oD == 1)
             {

@@ -28,7 +28,7 @@ public class TunnelSpawner : MonoBehaviour
     void FixedUpdate()
     {
         //StartCoroutine(TimeHater(0.5f)); //seems to be skipped on start.
-        expTime = Time.fixedTime;
+        expTime = Time.timeSinceLevelLoad;
 
 
         Spawn(openingDirection);

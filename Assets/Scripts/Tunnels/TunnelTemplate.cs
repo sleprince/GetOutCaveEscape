@@ -10,9 +10,9 @@ public class TunnelTemplate : MonoBehaviour
     public GameObject[] leftTunnels;
     public GameObject[] rightTunnels;
 
-    public GameObject closedTunnel;
+    //public GameObject closedTunnel;
 
-    public List<GameObject> Tunnels;
+    //public List<GameObject> Tunnels;
 
     public float waitTime;
     //private bool spawnedBoss;
@@ -23,14 +23,14 @@ public class TunnelTemplate : MonoBehaviour
 
         if (waitTime <= 0) //&& spawnedBoss == false)
         {
-            for (int i = 0; i < Tunnels.Count; i++)
-            {
-                if (i == Tunnels.Count - 1)
-                {
+            //for (int i = 0; i < Tunnels.Count; i++)
+            //{
+                //if (i == Tunnels.Count - 1)
+                //{
                     //Instantiate(boss, Tunnels[i].transform.position, Quaternion.identity);
                     //spawnedBoss = true;
-                }
-            }
+                //}
+           // }
         }
         else
         {

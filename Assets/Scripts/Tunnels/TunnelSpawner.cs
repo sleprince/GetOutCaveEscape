@@ -27,8 +27,6 @@ public class TunnelSpawner : MonoBehaviour
         //transform.position = SPoint.transform.position;
 
         templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
-
-
     }
 
     void FixedUpdate()
@@ -110,17 +108,54 @@ public class TunnelSpawner : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Spawn points collided.");
-        if (other.CompareTag("SpawnPoint")){
-			        if(other.GetComponent<TunnelSpawner>().spawned == false && spawned == false){
-				        //Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+
+     void OnTriggerEnter(Collider other)
+     {
+         Debug.Log("Spawn points collided."); //weirdly even though nothing gets shown in log these collisions are still
+                                              //happening. Probably because it gets destroyed straight after.
+
+
+        if (other.CompareTag("SpawnPoint"))
+        {
+            Invoke("Destroy", 0.1f);
         }
-        spawned = true;
-		        }
-	        }
+
+        //if (other.CompareTag("Tunnels"))
+        //{
+           // spawned = true;
+           // Destroy(transform.parent.gameObject);
+       // }
+
+        //if tag of collider is "Tunnel" (middle one) then destroy the tunnel itself instead of the spawn point.
+
+    }
+
+    void Destroy()
+    {
+
+            
+            //if (other.GetComponent<Tunnelspawner>().spawned == false && spawned == false)
+            //{
+            // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            spawned = true;
+        // }
+    }
+
+
+
+    /* public void OnCollisionEnter(Collision collision)
+     {
+         Debug.Log("Spawn points collided.");
+         //if (other.CompareTag("SpawnPoint")){
+                     //if(other.GetComponent<TunnelSpawner>().spawned == false && spawned == false){
+                         //Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+             Destroy(gameObject);
+         //}
+         spawned = true;
+                // }
+             }
+    */
 
     IEnumerator TimeHater(float timer)
     {

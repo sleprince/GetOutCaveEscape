@@ -13,20 +13,22 @@ public class TunnelSpawner : MonoBehaviour
 
    // private RoomTemplates templates;
     private int rand;
-    public bool spawned;
+    public bool spawned = false;
 
     public float waitTime = 4f;
     public float expTime;
 
-    public GameObject SPoint;
+    //public GameObject SPoint;
     private TunnelTemplate templates;
     //public GameObject templates;
 
     void Start()
     {
-        transform.position = SPoint.transform.position;
+        //transform.position = SPoint.transform.position;
 
         templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
+
+
     }
 
     void FixedUpdate()
@@ -35,7 +37,7 @@ public class TunnelSpawner : MonoBehaviour
         expTime = Time.timeSinceLevelLoad;
 
 
-        Spawn(openingDirection);
+        //Spawn(openingDirection);
 
         //spawned = true;
 
@@ -44,7 +46,7 @@ public class TunnelSpawner : MonoBehaviour
 
         
 
-        //Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 0.5f);
 
 
 
@@ -53,9 +55,11 @@ public class TunnelSpawner : MonoBehaviour
         //Invoke spawn 2 doors. pass in oD , after 3 minutes, 3 doors after 1.5mins etc.
     }
 
-    void Spawn(int oD)
+    void Spawn()
     {
-        if (expTime <= 0.00000002f)
+        int oD = openingDirection;
+
+        if (expTime <= 4f && spawned == false)
         {
             if (oD == 1)
             {
@@ -101,23 +105,22 @@ public class TunnelSpawner : MonoBehaviour
                 rand = Random.Range(0, templates.rightTunnels.Length);
                 Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
             }
-            //spawned = true;
+            spawned = true;
             
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("SpawnPoint"))
-        {
-            //if (other.GetComponent<Tunnelspawner>().spawned == false && spawned == false)
-            //{
-               // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-           // }
-            spawned = true;
+        Debug.Log("Spawn points collided.");
+        if (other.CompareTag("SpawnPoint")){
+			        if(other.GetComponent<TunnelSpawner>().spawned == false && spawned == false){
+				        //Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
-    }
+        spawned = true;
+		        }
+	        }
 
     IEnumerator TimeHater(float timer)
     {

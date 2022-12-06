@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 497456304967914823}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -1.988, y: 0, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.51999986, z: 0.51999986}
+  m_LocalScale: {x: 3.18, y: 0.51999986, z: 0.51999986}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3229940362430808645}
@@ -47,11 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d364416889ccaa147b68e51d0458940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 1
+  openingDirection: 4
   spawned: 0
   waitTime: 4
   expTime: 0
-  SPoint: {fileID: 497456304967914823}
 --- !u!65 &1553347313929458130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,7 +106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590871072168287349}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: -0.00000026822093, y: -0.70710677, z: 0.70710677, w: -0.00000026822093}
   m_LocalPosition: {x: 0, y: 4.170007, z: -39.6}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 1
@@ -116,7 +115,7 @@ Transform:
   - {fileID: 7999889523130925519}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 450, z: -90}
 --- !u!33 &3807574844533000554
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -403,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 4655418590856339487}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.988, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.51999986, z: 0.51999986}
+  m_LocalScale: {x: 0.52, y: 0.51999986, z: 3.18}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6285491936996838955}
@@ -422,11 +421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d364416889ccaa147b68e51d0458940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingDirection: 4
+  openingDirection: 1
   spawned: 0
   waitTime: 4
   expTime: 0
-  SPoint: {fileID: 4655418590856339487}
 --- !u!65 &1766696146672870126
 BoxCollider:
   m_ObjectHideFlags: 0

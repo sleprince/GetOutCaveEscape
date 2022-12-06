@@ -59,7 +59,7 @@ public class TunnelSpawner : MonoBehaviour
     {
         int oD = openingDirection;
 
-        if (expTime <= 4f && spawned == false)
+        if (expTime <= 16f && spawned == false)
         {
             if (oD == 1)
             {

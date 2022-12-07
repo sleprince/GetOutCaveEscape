@@ -13,20 +13,28 @@ public class TunnelSpawner : MonoBehaviour
 
    // private RoomTemplates templates;
     private int rand;
+
+
     public bool spawned = false;
 
     public float waitTime = 4f;
     public float expTime;
 
+    public float tunnelNum;
+
     //public GameObject SPoint;
     private TunnelTemplate templates;
+    private GameflowManager game;
     //public GameObject templates;
 
     void Start()
     {
         //transform.position = SPoint.transform.position;
 
+
+
         templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
+        game = GameflowManager.GetInstance();
     }
 
     void FixedUpdate()
@@ -57,8 +65,10 @@ public class TunnelSpawner : MonoBehaviour
     {
         int oD = openingDirection;
 
-        if (expTime <= 16f && spawned == false)
+        if (expTime <= 17f && spawned == false)
         {
+            game.tunnelNum++;
+
             if (oD == 1)
             {
 
@@ -67,8 +77,9 @@ public class TunnelSpawner : MonoBehaviour
 
                 //need to spawn a tunnel with a bottom door.
                 rand = Random.Range(0, templates.bottomTunnels.Length);
-                Instantiate(templates.bottomTunnels[rand], transform.position, templates.bottomTunnels[rand].transform.rotation);
-
+                GameObject go = Instantiate(templates.bottomTunnels[rand], transform.position, templates.bottomTunnels[rand].transform.rotation);
+                TunnelManager tunnel1 = go.GetComponent<TunnelManager>();
+                tunnel1.tunnelNum = game.tunnelNum;
                 //for the original tunnel one that needed rotating.
                 //Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
 
@@ -89,19 +100,25 @@ public class TunnelSpawner : MonoBehaviour
                 //rand will be between 1 and 2 now.
                 //need to spawn a tunnel with a top door.
                   rand = Random.Range(0, templates.topTunnels.Length);
-                 Instantiate(templates.topTunnels[rand], transform.position, templates.topTunnels[rand].transform.rotation);
+                 GameObject go2 = Instantiate(templates.topTunnels[rand], transform.position, templates.topTunnels[rand].transform.rotation);
+                 TunnelManager tunnel2 = go2.GetComponent<TunnelManager>();
+                 tunnel2.tunnelNum = game.tunnelNum;
             }
             else if (openingDirection == 3)
             {
                 //need to spawn a tunnel with a left door.
                 rand = Random.Range(0, templates.leftTunnels.Length);
-                Instantiate(templates.leftTunnels[rand], transform.position, templates.leftTunnels[rand].transform.rotation);
+                GameObject go3 = Instantiate(templates.leftTunnels[rand], transform.position, templates.leftTunnels[rand].transform.rotation);
+                TunnelManager tunnel3 = go3.GetComponent<TunnelManager>();
+                tunnel3.tunnelNum = game.tunnelNum;
             }
             else if (openingDirection == 4)
             {
                 //need to spawn a tunnel with a right door.
                 rand = Random.Range(0, templates.rightTunnels.Length);
-                Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
+                GameObject go4 = Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
+                TunnelManager tunnel4 = go4.GetComponent<TunnelManager>();
+                tunnel4.tunnelNum = game.tunnelNum;
             }
             spawned = true;
             
@@ -137,7 +154,8 @@ public class TunnelSpawner : MonoBehaviour
             //if (other.GetComponent<Tunnelspawner>().spawned == false && spawned == false)
             //{
             // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+
+            //Destroy(gameObject);
             spawned = true;
         // }
     }
@@ -161,6 +179,18 @@ public class TunnelSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         //spawned = true;
+    }
+
+    public static TunnelSpawner instance;
+    public static TunnelSpawner GetInstance()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        instance = this;
+        //DontDestroyOnLoad(this.gameObject);
     }
 
 } //class end.

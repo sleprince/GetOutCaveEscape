@@ -6,12 +6,12 @@ public class Enlarge : MonoBehaviour
 {
 
     public Vector3 expTime;
+
     public GameObject CameraRoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
 
     }
 
@@ -24,7 +24,7 @@ public class Enlarge : MonoBehaviour
 
         if (Time.fixedTime >= 2)
         {
-            CameraRoot.transform.localPosition += new Vector3(0f, 0.00390625f, -0.00390625f) * 10;
+            CameraRoot.transform.localPosition += new Vector3(0f, 0.00390625f, -0.00390625f) * 7.5f;
         }
 
 

@@ -10,6 +10,8 @@ public class GameflowManager : MonoBehaviour
 
     public BoxCollider ground;
 
+    public int tunnelNum;
+
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);
     //public bool TooBig;
 
@@ -31,7 +33,7 @@ public class GameflowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scale.transform.localScale.y > 2.5f)
+        if (scale.transform.localScale.y > 5f)
         {
 
                 SceneManager.LoadScene("GameOver");
@@ -44,4 +46,17 @@ public class GameflowManager : MonoBehaviour
     {
         SceneManager.LoadScene("YouWin");
     }
+
+    public static GameflowManager instance;
+    public static GameflowManager GetInstance()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        instance = this;
+        //DontDestroyOnLoad(this.gameObject);
+    }
+
 }

@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 225631098151303341}
   - component: {fileID: 2649643803174374503}
   - component: {fileID: 225631098151303338}
+  - component: {fileID: 3789497021538021186}
   m_Layer: 0
   m_Name: CornerBL
   m_TagString: Untagged
@@ -552,6 +553,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5221963080773851136, guid: 45d13ec40c36aa44ab72a6fb1a08368e, type: 3}
+--- !u!114 &3789497021538021186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595238905345322418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685ff5cc56da24f4398c10dab55bb8b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7540289388752132156
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,3 +641,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5062614c42c3e9043a1bf29b485455d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expTime: 0

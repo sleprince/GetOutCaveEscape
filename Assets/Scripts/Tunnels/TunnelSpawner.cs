@@ -44,7 +44,7 @@ public class TunnelSpawner : MonoBehaviour
 
         
 
-        Invoke("Spawn", 0.5f);
+        Invoke("Spawn", 5.0f);
 
 
 

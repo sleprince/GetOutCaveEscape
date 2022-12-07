@@ -13,10 +13,10 @@ public class DoubleStopper : MonoBehaviour
         if (other.CompareTag("Top"))
         {
         // spawned = true;
-         Destroy(transform.parent.gameObject);
+         Destroy(other.transform.parent.gameObject);
          }
 
-        //if tag of collider is "Tunnel" (middle one) then destroy the tunnel itself instead of the spawn point.
+        //if tag of collider is "Top" (middle one) then destroy the other tunnel itself instead of the collider.
 
     }
 }

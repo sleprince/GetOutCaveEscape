@@ -13,19 +13,19 @@ public class DoubleStopper : MonoBehaviour
 
    // Coroutine coroutine;
 
-    public bool SpawnedOnTop;
+   // public bool SpawnedOnTop;
 
-    void OnEnable()
+    void Start()
     {
 
         //tunnelSpawn = TunnelSpawner.GetInstance();
-        tunnelManager = GetComponent<TunnelManager>();
-        game = GetComponent<GameflowManager>();
+        tunnelManager = this.GetComponentInParent<TunnelManager>();
+        game = GameflowManager.GetInstance();
 
 
         //if (tunnelSpawn.expTime >= 12f)
 
-            if (tunnelManager.tunnelNum == game.levelNumTunnels + 1)
+        if (tunnelManager.tunnelNum == game.levelNumTunnels)
             {
             //last = true;
             Invoke("Destroy", 5.0f);

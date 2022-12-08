@@ -65,7 +65,7 @@ public class TunnelSpawner : MonoBehaviour
     {
         int oD = openingDirection;
 
-        if (game.tunnelNum + 1 <= game.levelNumTunnels && spawned == false)
+        if (game.tunnelNum + 1 <= game.levelNumTunnels + 1 && spawned == false)
         {
             
 

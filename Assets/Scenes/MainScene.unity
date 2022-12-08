@@ -1493,7 +1493,7 @@ MonoBehaviour:
   floorMesh: {fileID: 97353462}
   ground: {fileID: 0}
   tunnelNum: 1
-  levelNumTunnels: 5
+  levelNumTunnels: 6
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomTunnels:
-  - {fileID: 5856653420172730405, guid: 5f140b9aaf1e01a4e85e9d3ca9ced79f, type: 3}
+  - {fileID: 5856653420172730405, guid: 2804e52c68361d3488e0bb2240df924f, type: 3}
   - {fileID: 4595238905345322418, guid: cd6dabccd3fadb642915ec98fefa44b6, type: 3}
   topTunnels:
   - {fileID: 590871072168287349, guid: 8cc70de97ca208e4cba10052360306fd, type: 3}
@@ -1900,7 +1900,7 @@ MonoBehaviour:
   - {fileID: 4595238905345322418, guid: cd6dabccd3fadb642915ec98fefa44b6, type: 3}
   - {fileID: 590871072168287349, guid: 8cc70de97ca208e4cba10052360306fd, type: 3}
   rightTunnels:
-  - {fileID: 5856653420172730405, guid: 5f140b9aaf1e01a4e85e9d3ca9ced79f, type: 3}
+  - {fileID: 5856653420172730405, guid: 2804e52c68361d3488e0bb2240df924f, type: 3}
   - {fileID: 6540311940862322560, guid: 743a20d335593664d80fe943f2e0f715, type: 3}
   waitTime: 0
 --- !u!4 &1970975899
@@ -2874,6 +2874,7 @@ GameObject:
   - component: {fileID: 5656884555571289467}
   - component: {fileID: 9197740948453030383}
   - component: {fileID: 6485171175796103981}
+  - component: {fileID: 9197740948453030384}
   m_Layer: 0
   m_Name: TB
   m_TagString: Untagged
@@ -5608,7 +5609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5062614c42c3e9043a1bf29b485455d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedOnTop: 0
 --- !u!4 &8002264680806281515
 Transform:
   m_ObjectHideFlags: 0
@@ -6263,6 +6263,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9197740948453030384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792514746113881866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685ff5cc56da24f4398c10dab55bb8b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunnelNum: 0
 --- !u!1 &9222628703467949162
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5062614c42c3e9043a1bf29b485455d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnedOnTop: 0
 --- !u!1 &6540311940862322560
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +89,7 @@ GameObject:
   - component: {fileID: 7361081051674276511}
   - component: {fileID: 4738674658633025109}
   - component: {fileID: 7361081051674276504}
+  - component: {fileID: 8224413828911962687}
   m_Layer: 0
   m_Name: CornerTR
   m_TagString: Untagged
@@ -177,6 +179,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5221963080773851136, guid: 45d13ec40c36aa44ab72a6fb1a08368e, type: 3}
+--- !u!114 &8224413828911962687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6540311940862322560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685ff5cc56da24f4398c10dab55bb8b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunnelNum: 0
 --- !u!1 &6615476455960420865
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +437,7 @@ MonoBehaviour:
   spawned: 0
   waitTime: 4
   expTime: 0
+  tunnelNum: 0
 --- !u!65 &7953389653292373592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -599,6 +615,7 @@ MonoBehaviour:
   spawned: 0
   waitTime: 4
   expTime: 0
+  tunnelNum: 0
 --- !u!65 &7953389654391986289
 BoxCollider:
   m_ObjectHideFlags: 0

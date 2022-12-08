@@ -1492,7 +1492,7 @@ MonoBehaviour:
   scale: {fileID: 324011524}
   floorMesh: {fileID: 97353462}
   ground: {fileID: 0}
-  tunnelNum: 0
+  tunnelNum: 1
   levelNumTunnels: 5
 --- !u!1 &1764214107
 GameObject:
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5062614c42c3e9043a1bf29b485455d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expTime: 0
+  SpawnedOnTop: 0
 --- !u!4 &8002264680806281515
 Transform:
   m_ObjectHideFlags: 0

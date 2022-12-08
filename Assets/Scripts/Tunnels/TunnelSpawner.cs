@@ -67,7 +67,7 @@ public class TunnelSpawner : MonoBehaviour
 
         if (game.tunnelNum + 1 <= game.levelNumTunnels && spawned == false)
         {
-            game.tunnelNum++;
+            
 
 
             if (oD == 1)
@@ -81,6 +81,8 @@ public class TunnelSpawner : MonoBehaviour
                 GameObject go = Instantiate(templates.bottomTunnels[rand], transform.position, templates.bottomTunnels[rand].transform.rotation);
                 TunnelManager tunnel1 = go.GetComponent<TunnelManager>();
                 tunnel1.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
                 //for the original tunnel one that needed rotating.
                 //Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
 
@@ -91,7 +93,7 @@ public class TunnelSpawner : MonoBehaviour
 
                 //StartCoroutine(TimeHater(20.5f));
             }
-           else if (openingDirection == 2)
+           else if (oD == 2)
             {
                 //GameObject go2 = (GameObject)Resources.Load("Tunnels/TTB");
                 //Instantiate(go2, transform.position, Quaternion.Euler(270, 0, 0));
@@ -104,24 +106,30 @@ public class TunnelSpawner : MonoBehaviour
                  GameObject go2 = Instantiate(templates.topTunnels[rand], transform.position, templates.topTunnels[rand].transform.rotation);
                  TunnelManager tunnel2 = go2.GetComponent<TunnelManager>();
                  tunnel2.tunnelNum = game.tunnelNum;
+                 game.tunnelNum++;
+                 spawned = true;
             }
-            else if (openingDirection == 3)
+            else if (oD == 3)
             {
                 //need to spawn a tunnel with a left door.
                 rand = Random.Range(0, templates.leftTunnels.Length);
                 GameObject go3 = Instantiate(templates.leftTunnels[rand], transform.position, templates.leftTunnels[rand].transform.rotation);
                 TunnelManager tunnel3 = go3.GetComponent<TunnelManager>();
                 tunnel3.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
             }
-            else if (openingDirection == 4)
+            else if (oD == 4)
             {
                 //need to spawn a tunnel with a right door.
                 rand = Random.Range(0, templates.rightTunnels.Length);
                 GameObject go4 = Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
                 TunnelManager tunnel4 = go4.GetComponent<TunnelManager>();
                 tunnel4.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
             }
-            spawned = true;
+            
             
         }
     }
@@ -158,7 +166,7 @@ public class TunnelSpawner : MonoBehaviour
 
             //Destroy(gameObject);
 
-            spawned = true; //if spawnpoints touching, spawned = true.
+            spawned = true; //if spawnpoints touching, spawned = true, this makes it not spawn all the tunnels sometimes.
 
         // }
     }

@@ -11,6 +11,8 @@ public class DoubleStopper : MonoBehaviour
     TunnelManager tunnelManager;
     GameflowManager game;
 
+   // Coroutine coroutine;
+
     public bool SpawnedOnTop;
 
     void OnEnable()
@@ -26,11 +28,12 @@ public class DoubleStopper : MonoBehaviour
             if (tunnelManager.tunnelNum == game.levelNumTunnels + 1)
             {
             //last = true;
-            Invoke("Destroy", 0.1f);
+            Invoke("Destroy", 5.0f);
             
             }
 
 
+       // coroutine = TimeHater(5.0f);
 
 
 
@@ -39,7 +42,8 @@ public class DoubleStopper : MonoBehaviour
 
    void Destroy()
     {
-        Destroy(transform.parent.gameObject);
+        //Destroy(transform.parent.gameObject);
+        this.transform.parent.gameObject.SetActive(false);
 
     }
 
@@ -65,8 +69,9 @@ public class DoubleStopper : MonoBehaviour
         if (other.CompareTag("Top"))
         {
             // spawned = true;
-            //TimeHater(0.5f, other);
-            Destroy(other.transform.parent.gameObject);
+            StartCoroutine(TimeHater(2.0f, other));
+            //Destroy(other.transform.parent.gameObject);
+
 
             //SpawnedOnTop = true;
             TunnelSpawner tunSpawn =  GetComponentInParent<TunnelSpawner>(); //get this block's TunnelSpawner
@@ -80,11 +85,11 @@ public class DoubleStopper : MonoBehaviour
 
     }
 
-    //IEnumerator TimeHater(float timer, Collider other)
-   // {
-    //    yield return new WaitForSeconds(timer);
-        
+    IEnumerator TimeHater(float timer, Collider other)
+     {
+          yield return new WaitForSeconds(timer);
+          other.transform.parent.gameObject.SetActive(false);
 
         //spawned = true;
-   // }
+    }
 }

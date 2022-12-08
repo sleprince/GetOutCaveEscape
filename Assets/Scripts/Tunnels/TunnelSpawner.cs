@@ -24,7 +24,7 @@ public class TunnelSpawner : MonoBehaviour
 
     //public GameObject SPoint;
     private TunnelTemplate templates;
-    private GameflowManager game;
+    GameflowManager game;
     //public GameObject templates;
 
     void Start()
@@ -52,7 +52,7 @@ public class TunnelSpawner : MonoBehaviour
 
         
 
-        Invoke("Spawn", 5.0f);
+        Invoke("Spawn", 8.0f);
 
 
 
@@ -65,9 +65,10 @@ public class TunnelSpawner : MonoBehaviour
     {
         int oD = openingDirection;
 
-        if (expTime <= 17f && spawned == false)
+        if (game.tunnelNum + 1 <= game.levelNumTunnels && spawned == false)
         {
             game.tunnelNum++;
+
 
             if (oD == 1)
             {
@@ -129,12 +130,12 @@ public class TunnelSpawner : MonoBehaviour
      void OnTriggerEnter(Collider other)
      {
          Debug.Log("Spawn points collided."); //weirdly even though nothing gets shown in log these collisions are still
-                                              //happening. Probably because it gets destroyed straight after.
+                                              //happening. Probably because it gets destroyed straight after. Cannot debug.
 
 
         if (other.CompareTag("SpawnPoint"))
         {
-            Invoke("Destroy", 0.1f);
+            Invoke("Destroy", 0.5f);
         }
 
         //if (other.CompareTag("Tunnels"))
@@ -156,7 +157,9 @@ public class TunnelSpawner : MonoBehaviour
             // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
 
             //Destroy(gameObject);
-            spawned = true;
+
+            spawned = true; //if spawnpoints touching, spawned = true.
+
         // }
     }
 

@@ -11,6 +11,8 @@ public class GameflowManager : MonoBehaviour
     public BoxCollider ground;
 
     public int tunnelNum;
+    public int levelNumTunnels;
+    //public int tunelsSpawned;
 
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);
     //public bool TooBig;

@@ -13,20 +13,28 @@ public class TunnelSpawner : MonoBehaviour
 
    // private RoomTemplates templates;
     private int rand;
-    public bool spawned;
+
+
+    public bool spawned = false;
 
     public float waitTime = 4f;
     public float expTime;
 
-    public GameObject SPoint;
+    public float tunnelNum;
+
+    //public GameObject SPoint;
     private TunnelTemplate templates;
+    GameflowManager game;
     //public GameObject templates;
 
     void Start()
     {
-        transform.position = SPoint.transform.position;
+        //transform.position = SPoint.transform.position;
+
+
 
         templates = GameObject.FindGameObjectWithTag("Tunnels").GetComponent<TunnelTemplate>();
+        game = GameflowManager.GetInstance();
     }
 
     void FixedUpdate()
@@ -35,7 +43,7 @@ public class TunnelSpawner : MonoBehaviour
         expTime = Time.timeSinceLevelLoad;
 
 
-        Spawn(openingDirection);
+        //Spawn(openingDirection);
 
         //spawned = true;
 
@@ -44,7 +52,7 @@ public class TunnelSpawner : MonoBehaviour
 
         
 
-        //Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 8.0f);
 
 
 
@@ -53,10 +61,15 @@ public class TunnelSpawner : MonoBehaviour
         //Invoke spawn 2 doors. pass in oD , after 3 minutes, 3 doors after 1.5mins etc.
     }
 
-    void Spawn(int oD)
+    void Spawn()
     {
-        if (expTime <= 2.00000002f)
+        int oD = openingDirection;
+
+        if (game.tunnelNum + 1 <= game.levelNumTunnels && spawned == false)
         {
+            
+
+
             if (oD == 1)
             {
 
@@ -65,8 +78,11 @@ public class TunnelSpawner : MonoBehaviour
 
                 //need to spawn a tunnel with a bottom door.
                 rand = Random.Range(0, templates.bottomTunnels.Length);
-                Instantiate(templates.bottomTunnels[rand], transform.position, templates.bottomTunnels[rand].transform.rotation);
-
+                GameObject go = Instantiate(templates.bottomTunnels[rand], transform.position, templates.bottomTunnels[rand].transform.rotation);
+                TunnelManager tunnel1 = go.GetComponent<TunnelManager>();
+                tunnel1.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
                 //for the original tunnel one that needed rotating.
                 //Instantiate(go1, transform.position, Quaternion.Euler(270, 0, 0));
 
@@ -77,7 +93,7 @@ public class TunnelSpawner : MonoBehaviour
 
                 //StartCoroutine(TimeHater(20.5f));
             }
-           else if (openingDirection == 2)
+           else if (oD == 2)
             {
                 //GameObject go2 = (GameObject)Resources.Load("Tunnels/TTB");
                 //Instantiate(go2, transform.position, Quaternion.Euler(270, 0, 0));
@@ -87,42 +103,105 @@ public class TunnelSpawner : MonoBehaviour
                 //rand will be between 1 and 2 now.
                 //need to spawn a tunnel with a top door.
                   rand = Random.Range(0, templates.topTunnels.Length);
-                 Instantiate(templates.topTunnels[rand], transform.position, templates.topTunnels[rand].transform.rotation);
+                 GameObject go2 = Instantiate(templates.topTunnels[rand], transform.position, templates.topTunnels[rand].transform.rotation);
+                 TunnelManager tunnel2 = go2.GetComponent<TunnelManager>();
+                 tunnel2.tunnelNum = game.tunnelNum;
+                 game.tunnelNum++;
+                 spawned = true;
             }
-            else if (openingDirection == 3)
+            else if (oD == 3)
             {
                 //need to spawn a tunnel with a left door.
                 rand = Random.Range(0, templates.leftTunnels.Length);
-                Instantiate(templates.leftTunnels[rand], transform.position, templates.leftTunnels[rand].transform.rotation);
+                GameObject go3 = Instantiate(templates.leftTunnels[rand], transform.position, templates.leftTunnels[rand].transform.rotation);
+                TunnelManager tunnel3 = go3.GetComponent<TunnelManager>();
+                tunnel3.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
             }
-            else if (openingDirection == 4)
+            else if (oD == 4)
             {
                 //need to spawn a tunnel with a right door.
                 rand = Random.Range(0, templates.rightTunnels.Length);
-                Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
+                GameObject go4 = Instantiate(templates.rightTunnels[rand], transform.position, templates.rightTunnels[rand].transform.rotation);
+                TunnelManager tunnel4 = go4.GetComponent<TunnelManager>();
+                tunnel4.tunnelNum = game.tunnelNum;
+                game.tunnelNum++;
+                spawned = true;
             }
-            //spawned = true;
+            
             
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+
+     void OnTriggerEnter(Collider other)
+     {
+         Debug.Log("Spawn points collided."); //weirdly even though nothing gets shown in log these collisions are still
+                                              //happening. Probably because it gets destroyed straight after. Cannot debug.
+
+
         if (other.CompareTag("SpawnPoint"))
         {
+            Invoke("Destroy", 0.5f);
+        }
+
+        //if (other.CompareTag("Tunnels"))
+        //{
+           // spawned = true;
+           // Destroy(transform.parent.gameObject);
+       // }
+
+        //if tag of collider is "Tunnel" (middle one) then destroy the tunnel itself instead of the spawn point.
+
+    }
+
+    void Destroy()
+    {
+
+            
             //if (other.GetComponent<Tunnelspawner>().spawned == false && spawned == false)
             //{
-               // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-           // }
-            spawned = true;
-        }
+            // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+
+            //Destroy(gameObject);
+
+            spawned = true; //if spawnpoints touching, spawned = true, this makes it not spawn all the tunnels sometimes.
+
+        // }
     }
+
+
+
+    /* public void OnCollisionEnter(Collision collision)
+     {
+         Debug.Log("Spawn points collided.");
+         //if (other.CompareTag("SpawnPoint")){
+                     //if(other.GetComponent<TunnelSpawner>().spawned == false && spawned == false){
+                         //Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+             Destroy(gameObject);
+         //}
+         spawned = true;
+                // }
+             }
+    */
 
     IEnumerator TimeHater(float timer)
     {
         yield return new WaitForSeconds(timer);
         //spawned = true;
+    }
+
+    public static TunnelSpawner instance;
+    public static TunnelSpawner GetInstance()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        instance = this;
+        //DontDestroyOnLoad(this.gameObject);
     }
 
 } //class end.

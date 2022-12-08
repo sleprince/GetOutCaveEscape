@@ -148,6 +148,7 @@ MonoBehaviour:
   spawned: 0
   waitTime: 4
   expTime: 0
+  tunnelNum: 0
 --- !u!65 &5723740172909493903
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -361,6 +362,7 @@ MonoBehaviour:
   spawned: 0
   waitTime: 4
   expTime: 0
+  tunnelNum: 0
 --- !u!65 &7765829543799028040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -452,7 +454,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3706c5b164ac3184cacced61212e4621, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

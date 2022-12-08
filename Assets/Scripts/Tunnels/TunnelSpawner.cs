@@ -143,7 +143,7 @@ public class TunnelSpawner : MonoBehaviour
 
         if (other.CompareTag("SpawnPoint"))
         {
-            Invoke("Destroy", 0.5f);
+            Invoke("Spawned", 5.0f);
         }
 
         //if (other.CompareTag("Tunnels"))
@@ -156,7 +156,7 @@ public class TunnelSpawner : MonoBehaviour
 
     }
 
-    void Destroy()
+    void Spawned()
     {
 
             

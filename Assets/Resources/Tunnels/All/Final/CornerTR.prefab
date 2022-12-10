@@ -76,7 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5062614c42c3e9043a1bf29b485455d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedOnTop: 0
+  spawnPs: []
+  noTunnel: 0
 --- !u!1 &6540311940862322560
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 658ab36f0d48ec340a7e00ddbdb8ad0c, type: 2}
+  - {fileID: 2100000, guid: b14870b03ba9e4044b6c0b4c03732285, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   spawned: 0
+  tunnelAdded: 0
   waitTime: 4
   expTime: 0
   tunnelNum: 0
@@ -613,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   spawned: 0
+  tunnelAdded: 0
   waitTime: 4
   expTime: 0
   tunnelNum: 0

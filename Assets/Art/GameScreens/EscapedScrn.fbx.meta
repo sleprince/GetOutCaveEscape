@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc1028b50d93e714a8151f607750ee91
+guid: 106cea6b2b4ce274c829e4e7464c595e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,22 +7,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
-    second: {fileID: 2100000, guid: b14870b03ba9e4044b6c0b4c03732285, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.006
+      name: Material.003
     second: {fileID: 2100000, guid: b14870b03ba9e4044b6c0b4c03732285, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: floor
     second: {fileID: 2100000, guid: 4de3e9fee2e043a489ca2f734c005f78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: theThing
+    second: {fileID: 2100000, guid: ed40a9dfcbe42554b8ed938c2aaafa0a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4

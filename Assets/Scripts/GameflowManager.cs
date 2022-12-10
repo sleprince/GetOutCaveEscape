@@ -12,6 +12,10 @@ public class GameflowManager : MonoBehaviour
 
     public int tunnelNum;
     public int levelNumTunnels;
+
+    //public bool onTop;
+    public bool tunnelAdded;
+
     //public int tunelsSpawned;
 
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);

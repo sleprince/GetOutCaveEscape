@@ -2,9 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-namespace StarterAssets
-{
-	public class StarterAssetsInputs : MonoBehaviour
+
+	public class ThirdPersonInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
 		public Vector2 move;
@@ -74,6 +73,5 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
 	
 }

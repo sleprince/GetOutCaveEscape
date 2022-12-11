@@ -16,6 +16,8 @@ public class GameflowManager : MonoBehaviour
     //public bool onTop;
     public bool tunnelAdded;
 
+    public float expTime;
+
     //public int tunelsSpawned;
 
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);
@@ -44,6 +46,8 @@ public class GameflowManager : MonoBehaviour
 
                 SceneManager.LoadScene("GameOver");
         }
+
+        expTime = Time.deltaTime;
 
 
     }

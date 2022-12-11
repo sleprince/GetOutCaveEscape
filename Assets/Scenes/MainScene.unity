@@ -444,7 +444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -846,6 +846,23 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 7068858448192448576, guid: 24c0dce7754132944bf6f29819a1b094, type: 3}
   m_PrefabInstance: {fileID: 456305132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1404188024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4348527661343281755, guid: 51b41bf8c79e48a41ac04e6ec25d58df, type: 3}
+  m_PrefabInstance: {fileID: 1359691214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404188026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404188024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80edc730ed17cd4428168a463ceab3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1576775202
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +966,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1490474570843860760, guid: 680746b013037b94a93e4a86b0075921, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: KeyboardMouse
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1490474570843860767, guid: 680746b013037b94a93e4a86b0075921, type: 3}
       propertyPath: LandingAudioClip

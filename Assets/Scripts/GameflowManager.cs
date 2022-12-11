@@ -44,7 +44,9 @@ public class GameflowManager : MonoBehaviour
         if (scale.transform.localScale.y > 5f)
         {
 
-                SceneManager.LoadScene("GameOver");
+            Completed.SoundManager.instance.efxSource.Play();
+
+            SceneManager.LoadScene("GameOver");
         }
 
         expTime = Time.deltaTime;

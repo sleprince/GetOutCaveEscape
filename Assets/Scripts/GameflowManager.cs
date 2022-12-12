@@ -29,6 +29,9 @@ public class GameflowManager : MonoBehaviour
         //get the mesh collider from the ground.
         ground = floorMesh.GetComponentInChildren<BoxCollider>(true) as BoxCollider;
 
+
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     public bool TooBig()
@@ -56,8 +59,21 @@ public class GameflowManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("YouWin");
+        //if (SceneManager.GetActiveScene().buildIndex == 4)
+      // {
+        //    SceneManager.LoadScene("YouWin");
+
+       // }
+       // else
+       // {
+            // load the nextlevel
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //}
+
+
+
     }
+
 
     public static GameflowManager instance;
     public static GameflowManager GetInstance()

@@ -7,29 +7,18 @@ public class GameflowManager : MonoBehaviour
 {
     public GameObject scale;
     public GameObject floorMesh;
-
     public BoxCollider ground;
-
     public int tunnelNum;
     public int levelNumTunnels;
-
-    //public bool onTop;
     public bool tunnelAdded;
-
     public float expTime;
-
-    //public int tunelsSpawned;
-
     private Vector3 maxScale = new Vector3(2.5f,2.5f,2.5f);
-    //public bool TooBig;
 
     // Start is called before the first frame update
     void Start()
     {
         //get the mesh collider from the ground.
         ground = floorMesh.GetComponentInChildren<BoxCollider>(true) as BoxCollider;
-
-
         Cursor.lockState = CursorLockMode.Locked;
 
     }
@@ -47,8 +36,7 @@ public class GameflowManager : MonoBehaviour
         if (scale.transform.localScale.y > 5f)
         {
 
-            Completed.SoundManager.instance.efxSource.Play();
-
+            Completed.SoundManager.instance.efxSource.Play(); //play wilhem scream
             SceneManager.LoadScene("GameOver");
         }
 
@@ -56,24 +44,6 @@ public class GameflowManager : MonoBehaviour
 
 
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        //if (SceneManager.GetActiveScene().buildIndex == 4)
-      // {
-        //    SceneManager.LoadScene("YouWin");
-
-       // }
-       // else
-       // {
-            // load the nextlevel
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //}
-
-
-
-    }
-
 
     public static GameflowManager instance;
     public static GameflowManager GetInstance()
@@ -84,7 +54,7 @@ public class GameflowManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        //DontDestroyOnLoad(this.gameObject);
+
     }
 
 }

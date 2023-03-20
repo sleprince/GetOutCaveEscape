@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 6005731221276260739}
   m_Layer: 0
   m_Name: MidPoint (1)
-  m_TagString: Untagged
+  m_TagString: Top
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

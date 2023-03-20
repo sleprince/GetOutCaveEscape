@@ -19,7 +19,8 @@ public class NoWayOut : MonoBehaviour
 
         if(game.tunnelNum >= 3)
         {
-            this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false); //get rid of the cube that blocks the exit at the start, when more tunnels have spawned, to stop it interfering
+            //with tunnel network
 
 
         }
